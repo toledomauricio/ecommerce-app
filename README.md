@@ -98,4 +98,8 @@ Para executar os testes, você pode usar o seguinte comando dentro da pasta raí
 yarn test
 ```
 
+## Cobertura de Testes
+![Cobertura de Testes](https://github.com/toledomauricio/ecommerce-app/blob/master/testCoverage.png?raw=true)
+---
+
 Agora você pode explorar e gerenciar seus produtos usando a interface frontend do Ecommerce App. Divirta-se! 😊
