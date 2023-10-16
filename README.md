@@ -87,7 +87,7 @@ Para garantir a qualidade e confiabilidade do código, foram criados alguns test
 ### Teste da `products.controller()`
 
 - **Condição:** deve retornar produtos da segunda página
-- **Descrição:** Este teste verifica se deve retornar produtos da segunda página.
+- **Descrição:** Este teste verifica se deve retornar produtos da segunda página. Ele faz uma solicitação GET para a rota /products?page=2&perPage=5 e verifica se a resposta contém um array de produtos com um comprimento de 5. Além disso, verifica se cada produto tem propriedades como id, name, description, price e imageUrl. Se o cabeçalho da resposta x-total-count estiver presente, ele verifica se esse valor é maior que 5. Este teste garante que a paginação funcione corretamente no controlador de produtos.
 - **Método:** `GET`
 
 ## Executando os Testes
