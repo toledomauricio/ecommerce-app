@@ -22,6 +22,10 @@ export class CreateProductsTable1697485647920 implements MigrationInterface {
             name: 'price',
             type: 'numeric',
           },
+          {
+            name: 'imageUrl',
+            type: 'text',
+          },
         ],
       }),
       true,

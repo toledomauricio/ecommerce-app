@@ -20,6 +20,6 @@ import { ProductController } from './products/product.controller';
     TypeOrmModule.forFeature([Product, ProductRepository]),
   ],
   controllers: [ProductController],
-  providers: [ProductService, ProductRepository],
+  providers: [ProductService],
 })
 export class AppModule {}
