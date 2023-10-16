@@ -80,4 +80,22 @@ npm run serve
 
 O frontend estará disponível em: `http://localhost:8080/`
 
+## Cobertura de Testes da API 🧪
+
+Para garantir a qualidade e confiabilidade do código, foram criados alguns testes. Abaixo estão os principais testes de integração da API:
+
+### Teste da `products.controller()`
+
+- **Condição:** deve retornar produtos da segunda página
+- **Descrição:** Este teste verifica se deve retornar produtos da segunda página.
+- **Método:** `GET`
+
+## Executando os Testes
+
+Para executar os testes, você pode usar o seguinte comando dentro da pasta raízdo projeto:
+
+```bash
+yarn test
+```
+
 Agora você pode explorar e gerenciar seus produtos usando a interface frontend do Ecommerce App. Divirta-se! 😊
