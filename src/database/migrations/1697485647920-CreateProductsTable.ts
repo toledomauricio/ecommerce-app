@@ -24,7 +24,7 @@ export class CreateProductsTable1697485647920 implements MigrationInterface {
           },
           {
             name: 'imageUrl',
-            type: 'text',
+            type: 'longtext',
           },
         ],
       }),

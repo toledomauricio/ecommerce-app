@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="product-header bg-blue-500 p-4 text-white">
-      <h1 class="text-2xl">{{ selectedProduct ? selectedProduct.name : 'Listagem de Produtos' }}</h1>
+      <h1 class="text-2xl text-white" style="color:white">{{ selectedProduct ? selectedProduct.name : 'Listagem de Produtos' }}</h1>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <div
@@ -10,7 +10,7 @@
         class="product-card"
         @click="selectProduct(product)"
       >
-        <img :src="product.image" alt="Product Image" class="product-image" />
+        <img :src="product.imageUrl" :alt="product.name" class="product-image" />
         <h2 class="product-title">{{ product.name }}</h2>
         <p class="product-description">{{ product.description }}</p>
         <p class="product-price">$ {{ product.price }}</p>
@@ -22,13 +22,13 @@
         :disabled="currentPage === 1"
         @click="changePage(currentPage - 1)"
       >
-        Previous
+        Anterior
       </button>
       <button
         class="pagination-button"
         @click="changePage(currentPage + 1)"
       >
-        Next
+        Próximo
       </button>
     </div>
   </div>
@@ -81,7 +81,6 @@ export default {
       this.selectedProduct = product;
     },
     changePage(page) {
-      console.log('aa');
         this.currentPage = page;
         this.fetchProducts();
     },
