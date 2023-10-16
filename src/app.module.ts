@@ -9,10 +9,10 @@ import { ProductController } from './products/product.controller';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'vultr-prod-9f1cd11f-e7d0-45f6-9399-19e0214d02e2-vultr-prod-f887.vultrdb.com',
+      host: '',
       port: 16751,
-      username: 'vultradmin',
-      password: 'AVNS_hbZBxDDumg2uQFX2BA-',
+      username: '',
+      password: '',
       database: 'defaultdb',
       entities: [Product],
       synchronize: true,
