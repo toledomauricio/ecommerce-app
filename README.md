@@ -1,73 +1,83 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Ecommerce App
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Bem-vindo ao Ecommerce App, um projeto de comércio eletrônico incrível! Aqui estão as instruções para configurar, iniciar e configurar a parte do frontend deste aplicativo.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Pré-requisitos
 
-## Description
+Antes de começar, certifique-se de ter o Node.js e o npm (Node Package Manager) instalados em sua máquina. Se você ainda não os possui, você pode fazer o download em [Node.js](https://nodejs.org/).
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
+Além disso, é recomendável ter o Yarn e o NestJS instalados globalmente. Você pode fazer isso com os seguintes comandos:
 
 ```bash
-$ yarn install
+# Instale o Yarn globalmente (se ainda não estiver instalado)
+npm install -g yarn
+
+# Instale o NestJS globalmente (se ainda não estiver instalado)
+npm install -g @nestjs/cli
+
+# Instale as dependências do projeto
+npm install ou yarn add
 ```
 
-## Running the app
+## Configuração Inicial
+1. Clone este repositório para a sua máquina
+2. Para rodar o projeto, utilize o seguinte comando:
 
 ```bash
-# development
-$ yarn run start
+yarn run start --watch
+```
+O servidor estará disponível em: `http://localhost:3000/`
 
-# watch mode
-$ yarn run start:dev
+## Configurando Migrations no Banco de Dados
+O projeto utiliza Migrations do TypeORM para gerenciar o banco de dados. Siga estas etapas para configurar as migrações:
 
-# production mode
-$ yarn run start:prod
+1. Crie o banco:
+```bash
+CREATE DATABASE defaultdb;
 ```
 
-## Test
+2. Rode as migrations para criar a tabela de produtos:
+```bash
+npx typeorm migration:run -d src/database/migrations/1697485647920-CreateProductsTable.ts
+```
+
+Isso criará a tabela de produtos automaticamente, desde que suas configurações de banco de dados sejam corretas.
+
+Se preferir, crie manualmente:
+```bash
+CREATE TABLE products (
+    id longtext PRIMARY KEY,
+    name varchar(255),
+    description text,
+    price numeric,
+    imageUrl: longtext,
+);
+```
+## Seeds ( Inserindo dados iniciais )
+Para adicionar dados iniciais (seeds) ao seu projeto, faça uma solicitação POST para o seguinte endpoint:
 
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+curl --location --request POST 'http://localhost:3000/products/seed'
 ```
 
-## Support
+Isso preencherá o banco de dados com dados de exemplo para que você possa começar a explorar e gerenciar os produtos de exemplo.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Configurando o Frontend
+1. Navegue até a pasta do frontend:
+```bash
+cd frontend
+```
 
-## Stay in touch
+2. Instale as dependências do Frontend usando o npm:
+```bash
+npm install
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+3. Após a conclusão da instalação, inicie o projeto frontend com o seguinte comando:
+```bash
+npm run serve
+```
 
-## License
+O frontend estará disponível em: `http://localhost:8080/`
 
-Nest is [MIT licensed](LICENSE).
+Agora você pode explorar e gerenciar seus produtos usando a interface frontend do Ecommerce App. Divirta-se! 😊
