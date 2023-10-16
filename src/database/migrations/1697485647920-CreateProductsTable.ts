@@ -8,8 +8,7 @@ export class CreateProductsTable1697485647920 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'serial',
-            isPrimary: true,
+            type: 'longtext',
           },
           {
             name: 'name',

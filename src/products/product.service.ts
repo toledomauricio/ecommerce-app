@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Product } from './product.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { uuid } from 'uuidv4';
 
 @Injectable()
 export class ProductService {
@@ -12,6 +13,14 @@ export class ProductService {
 
   async getAllProducts(): Promise<any> {
     return await this.productsRepository.find();
+  }
+
+  async getProductsByPage(page: number, perPage: number): Promise<Product[]> {
+    const skip = (page - 1) * perPage;
+    return await this.productsRepository.find({
+      skip: skip,
+      take: perPage,
+    });
   }
 
   async insertFakeProducrs(): Promise<any> {
@@ -80,6 +89,7 @@ export class ProductService {
 
     for (const productData of productsToSeed) {
       const product = new Product();
+      product.id = uuid();
       product.name = productData.name;
       product.description = productData.description;
       product.price = productData.price;
