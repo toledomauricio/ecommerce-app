@@ -80,6 +80,39 @@ npm run serve
 
 O frontend estará disponível em: `http://localhost:8080/`
 
+# Documentação da API
+
+## Endpoint
+
+GET `http://localhost:3000/products
+
+Este endpoint permite recuperar produtos com base na página e na quantidade de itens por página.
+
+### Parâmetros
+
+- `page` (Número da Página): O número da página desejada.
+- `perPage` (Itens por Página): A quantidade de itens por página.
+
+### Exemplo de Requisição
+
+```http
+GET http://localhost:3000/products?page=1&perPage=5
+```
+
+## Resposta
+A resposta será um objeto JSON contendo os detalhes do produto encontrado.
+
+Exemplo:
+```json
+{
+    "id": "00881d91-cda2-423e-80e6-eca99d6fafa6",
+    "name": "Caixa de Som Bluetooth Portátil",
+    "description": "Uma caixa de som portátil com conectividade Bluetooth para música em qualquer lugar.",
+    "price": 59,
+    "imageUrl": "http://imagem.com.br/item.jpeg"
+}
+```
+
 ## Cobertura de Testes da API 🧪
 
 Para garantir a qualidade e confiabilidade do código, foram criados alguns testes. Abaixo estão os principais testes de integração da API:
